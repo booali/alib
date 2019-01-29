@@ -1,12 +1,35 @@
 <!DOCTYPE html>
-
+{% load staticfiles %}
 <html>
 <head>
+<link rel="stylesheet" href='{% static 'css/bootstrap.css' %}'>
 <title>
 home page
 </title>
 </head>
-<body>
+<body class='container'>
+{{halal}}
 <p> this is the first page </p>
+<img src="{% static 'images/alpacino.jpg' %}" class="align-self-center">
+{% for aa in as %}
+
+
+<div class="card col-lg-10">
+  <div class="card-header container-fluid text-right">
+    {{aa}}
+  </div>
+  <div class="card-body">
+
+    <p class="card-text">{{aa.Mainpost}}</p>
+  </div>
+</div>
+
+{% endfor %}
+
+
+<script> 
+src='{% static 'js/bootstrap.js' %}'
+</script>
+
 </body>
 </html>

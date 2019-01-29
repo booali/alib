@@ -1,6 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.core.paginator import Paginator
+from base.models import Post
+#from django.http import HttpResponse
+
 
 def index(request):
-    dict_aa = {}
-    return render(request,'index.html',context=dict_aa)
+    kolohom = Post.objects.all()
+    ss = {'as' : kolohom}
+    return render(request, 'index.html', context=ss)
