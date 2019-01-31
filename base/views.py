@@ -5,6 +5,11 @@ from base.models import Post
 
 
 def index(request):
-    kolohom = Post.objects.all()
-    ss = {'as' : kolohom}
+    kolohom = list(Post.objects.all())
+    posts = Paginator(kolohom,3)
+    
+    page = request.GET.get('page')
+    post = posts.get_page(page)
+    ass = request.GET.get('ass')
+    ss = {'as' : kolohom,'posts':post,'fun':ass}
     return render(request, 'index.html', context=ss)
